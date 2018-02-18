@@ -33,8 +33,8 @@ class FreeTypeMeterTest extends TestCase
     public function expectedHeightResultProvider()
     {
         return [
-            [ 14, "0" ],
-            [ 14*2 + 3, "O\n0" ],
+            [ 12, "0" ],
+            [ 33, "0\n0" ],
         ];
     }
 

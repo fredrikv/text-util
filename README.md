@@ -71,7 +71,6 @@ Split a string into its smallest atoms according to some rules.
         $lines[] = implode('', $line);
     }
 
-
     $wrappedText = implode(PHP_EOL, $lines);
     $textHeight = $textMeter->getHeight($wrappedText);
 
