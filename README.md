@@ -50,8 +50,8 @@ Split a string into its smallest atoms according to some rules.
     use FredrikV\TextUtil\TextMeter\FreeTypeTextMeter;
     use FredrikV\TextUtil\TextWrapper\TextWrapper;
 
+    // Initialize variables
     $originalText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
-
     $imageWidth       = 500;
     $imageHeight      = 500;
     $fontFile         = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf';
@@ -64,25 +64,26 @@ Split a string into its smallest atoms according to some rules.
         $imageWidth
     );
 
-    $lines = [];
 
+    // Wrap text
+    $lines = [];
     foreach ($textWrapper->wrap($originalText) as $line) {
         $lines[] = implode('', $line);
     }
 
-    $wrappedText = implode(PHP_EOL, $lines);
 
+    $wrappedText = implode(PHP_EOL, $lines);
     $textHeight = $textMeter->getHeight($wrappedText);
 
+
+    // Generate image
     $im = imagecreatetruecolor($imageWidth, $imageHeight);
     $textColor = imagecolorallocate($im, 0xFF, 0xFF, 0xFF);
-
-    // Draw the text 'PHP Manual' using font size 13
     imagefttext($im, $fontSize, 0, 0, $imageHeight - $textHeight, $textColor, $fontFile, $wrappedText);
+
 
     // Output image to the browser
     header('Content-Type: image/png');
-
     imagepng($im);
     imagedestroy($im);
 
