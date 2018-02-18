@@ -6,6 +6,9 @@ use FredrikV\TextUtil\TextAtom\TextAtomSplitterInterface;
 use FredrikV\TextUtil\TextMeter\TextMeterInterface;
 use FredrikV\TextUtil\TextWrapper\TextWrapperInterface;
 
+/**
+ * Class: TextWrapper
+ */
 class TextWrapper implements TextWrapperInterface
 {
     /** @var TextAtomSplitterInterface */

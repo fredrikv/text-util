@@ -19,7 +19,11 @@ class SpaceTextAtomSplitterTest extends TestCase
         $this->textAtomSplitter = new SpaceTextAtomSplitter();
     }
 
-    public function expectedResultProvider()
+    /**
+     * Expected text atoms
+     * @return array
+     */
+    public function expectedTextAtomsProvider()
     {
         return [
             [ [ ],                                                                  '' ],
@@ -31,7 +35,7 @@ class SpaceTextAtomSplitterTest extends TestCase
     }
 
     /**
-     * @dataProvider expectedResultProvider
+     * @dataProvider expectedTextAtomsProvider
      *
      * @covers ::split
      *

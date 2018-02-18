@@ -4,6 +4,8 @@ namespace FredrikV\TextUtil\TextMeter;
 
 /**
  * Interface: TextMeterInterface
+ *
+ * Measure text dimensions in some unit.
  */
 interface TextMeterInterface
 {

@@ -5,6 +5,8 @@ namespace FredrikV\TextUtil\TextMeter;
 /**
  * Class: FreeTypeTextMeter
  *
+ * Measure text dimensions in pixels.
+ *
  * @see TextMeterInterface
  */
 class FreeTypeTextMeter implements TextMeterInterface
@@ -47,7 +49,13 @@ class FreeTypeTextMeter implements TextMeterInterface
         return $boundingBox[1] - $boundingBox[5];
     }
 
-    private function getBoundingBox($text)
+    /**
+     * Get bounding box according to imageftbbox
+     *
+     * @param string $text
+     * @return array
+     */
+    private function getBoundingBox(string $text)
     {
         return \imageftbbox($this->fontSize, 0, $this->fontFile, $text);
     }

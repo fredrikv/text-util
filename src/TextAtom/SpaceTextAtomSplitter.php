@@ -2,10 +2,15 @@
 
 namespace FredrikV\TextUtil\TextAtom;
 
+/**
+ * Class: SpaceTextAtomSplitter
+ *
+ * @see TextAtomSplitterInterface
+ */
 class SpaceTextAtomSplitter implements TextAtomSplitterInterface
 {
     /**
-     * Split $string into smallest possible parts according to some rules.
+     * Split $string into words and spaces.
      *
      * {@inheritDoc}
      */

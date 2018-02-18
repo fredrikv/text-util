@@ -16,6 +16,9 @@ use FredrikV\TextUtil\TextMeter\TextMeterInterface;
  */
 class TextWrapperTest extends TestCase
 {
+    /**
+     * {@inheritDoc}
+     */
     public function setUp()
     {
         $textAtomSplitter = $this->createTextAtomSplitterMock();
@@ -28,6 +31,9 @@ class TextWrapperTest extends TestCase
         );
     }
 
+    /**
+     * @return TextAtomSplitterInterface
+     */
     private function createTextAtomSplitterMock()
     {
         $mock = $this
@@ -47,6 +53,9 @@ class TextWrapperTest extends TestCase
         return $mock;
     }
 
+    /**
+     * @return TextMeterInterface
+     */
     private function createTextMeterMock()
     {
         $mock = $this
@@ -65,10 +74,13 @@ class TextWrapperTest extends TestCase
                 ));
             }));
 
-
         return $mock;
     }
 
+    /**
+     * Expected text atoms and wraps
+     * @return array
+     */
     public function expectedResultProvider()
     {
         return [

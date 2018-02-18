@@ -14,12 +14,19 @@ use FredrikV\TextUtil\TextMeter\CharCountTextMeter;
  */
 class CharCountTextMeterTest extends TestCase
 {
+    /**
+     * {@inheritDoc}
+     */
     public function setUp()
     {
         $this->textMeter = new CharCountTextMeter();
     }
 
-    public function expectedWidthResultProvider()
+    /**
+     * Expected widths
+     * @return array
+     */
+    public function expectedWidthsProvider()
     {
         return [
             [ 0,  "" ],
@@ -31,7 +38,11 @@ class CharCountTextMeterTest extends TestCase
         ];
     }
 
-    public function expectedHeightResultProvider()
+    /**
+     * Expected heights
+     * @return array
+     */
+    public function expectedHeightsProvider()
     {
         return [
             [ 0,  "" ],
@@ -44,33 +55,33 @@ class CharCountTextMeterTest extends TestCase
 
 
     /**
-     * @dataProvider expectedWidthResultProvider
+     * @dataProvider expectedWidthsProvider
      *
      * @covers ::getWidth
      *
+     * @param float $expectedResult
      * @param string $input
-     * @param array $expectedResult
      */
-    public function testExpectedWidthResult(float $expectedResult, string $input)
+    public function testExpectedWidths(float $expectedWidth, string $input)
     {
         $this->assertEquals(
-            $expectedResult,
+            $expectedWidth,
             $this->textMeter->getWidth($input)
         );
     }
 
     /**
-     * @dataProvider expectedHeightResultProvider
+     * @dataProvider expectedHeightsProvider
      *
      * @covers ::getWidth
      *
+     * @param float $expectedResult
      * @param string $input
-     * @param array $expectedResult
      */
-    public function testExpectedHeightResult(float $expectedResult, string $input)
+    public function testExpectedHeights(float $expectedHeight, string $input)
     {
         $this->assertEquals(
-            $expectedResult,
+            $expectedHeight,
             $this->textMeter->getHeight($input)
         );
     }

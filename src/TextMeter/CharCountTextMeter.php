@@ -5,6 +5,8 @@ namespace FredrikV\TextUtil\TextMeter;
 /**
  * Class: CharCountTextMeter
  *
+ * Measure text dimensions in character count.
+ *
  * @see TextMeterInterface
  */
 class CharCountTextMeter implements TextMeterInterface
