@@ -1,7 +1,7 @@
 # text-util
 Utilities for measuring and wrapping text.
 
-[![Travis][travis-shield]][travis]
+[![Build Status](https://travis-ci.org/fredrikv/text-util.svg?branch=master)](https://travis-ci.org/fredrikv/text-util)
 
 # Installation
 Add the following lines to your composer.json:
