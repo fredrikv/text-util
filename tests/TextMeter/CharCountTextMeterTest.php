@@ -19,7 +19,7 @@ class CharCountTextMeterTest extends TestCase
         $this->textMeter = new CharCountTextMeter();
     }
 
-    public function expectedResultProvider()
+    public function expectedWidthResultProvider()
     {
         return [
             [ 0,  "" ],
@@ -31,19 +31,47 @@ class CharCountTextMeterTest extends TestCase
         ];
     }
 
+    public function expectedHeightResultProvider()
+    {
+        return [
+            [ 0,  "" ],
+            [ 1, "numberOfChars" ],
+            [ 3, "thelongest\nof\nlines_n" ],
+            [ 3, "thelongest\r\nof\r\nlines_rn" ],
+            [ 3, "thelongest\rof\rlines_r" ],
+        ];
+    }
+
+
     /**
-     * @dataProvider expectedResultProvider
+     * @dataProvider expectedWidthResultProvider
      *
      * @covers ::getWidth
      *
      * @param string $input
      * @param array $expectedResult
      */
-    public function testExpectedResult(float $expectedResult, string $input)
+    public function testExpectedWidthResult(float $expectedResult, string $input)
     {
         $this->assertEquals(
             $expectedResult,
             $this->textMeter->getWidth($input)
+        );
+    }
+
+    /**
+     * @dataProvider expectedHeightResultProvider
+     *
+     * @covers ::getWidth
+     *
+     * @param string $input
+     * @param array $expectedResult
+     */
+    public function testExpectedHeightResult(float $expectedResult, string $input)
+    {
+        $this->assertEquals(
+            $expectedResult,
+            $this->textMeter->getHeight($input)
         );
     }
 }

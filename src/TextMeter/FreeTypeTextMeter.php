@@ -32,8 +32,23 @@ class FreeTypeTextMeter implements TextMeterInterface
      */
     public function getWidth(string $text) : float
     {
-        $boundingBox = \imageftbbox($this->fontSize, 0, $this->fontFile, $text);
+        $boundingBox = $this->getBoundingBox($text);
 
-        return $boundingBox[4] - $boundingBox[0];
+        return $boundingBox[2] - $boundingBox[0];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getHeight(string $text) : float
+    {
+        $boundingBox = $this->getBoundingBox($text);
+
+        return $boundingBox[1] - $boundingBox[5];
+    }
+
+    private function getBoundingBox($text)
+    {
+        return \imageftbbox($this->fontSize, 0, $this->fontFile, $text);
     }
 }

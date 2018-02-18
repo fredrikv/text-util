@@ -51,11 +51,20 @@ class TextWrapperTest extends TestCase
     {
         $mock = $this
             ->getMockBuilder(TextMeterInterface::class)
-            ->setMethods(['getWidth'])
+            ->setMethods(['getWidth', 'getHeight'])
             ->getMock();
 
         $mock->method('getWidth')
             ->will($this->returnCallback('mb_strlen'));
+
+        $mock->method('getHeight')
+            ->will($this->returnCallback(function (string $text) {
+                return count(preg_split(
+                    "/(\\R)/",
+                    $text
+                ));
+            }));
+
 
         return $mock;
     }

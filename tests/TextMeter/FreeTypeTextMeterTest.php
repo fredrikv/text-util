@@ -16,10 +16,13 @@ class FreeTypeMeterTest extends TestCase
 {
     public function setUp()
     {
-        $this->textMeter = new FreeTypeTextMeter(12, '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf');
+        $this->textMeter = new FreeTypeTextMeter(
+            12,
+            '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+        );
     }
 
-    public function expectedResultProvider()
+    public function expectedWidthResultProvider()
     {
         return [
             [ 0,  "" ],
@@ -27,8 +30,17 @@ class FreeTypeMeterTest extends TestCase
         ];
     }
 
+    public function expectedHeightResultProvider()
+    {
+        return [
+            [ 14, "0" ],
+            [ 14*2 + 3, "O\n0" ],
+        ];
+    }
+
+
     /**
-     * @dataProvider expectedResultProvider
+     * @dataProvider expectedWidthResultProvider
      *
      * @covers ::getWidth
      * @covers ::__construct
@@ -36,11 +48,28 @@ class FreeTypeMeterTest extends TestCase
      * @param string $input
      * @param array $expectedResult
      */
-    public function testExpectedResult(float $expectedResult, string $input)
+    public function testExpectedWidthResult(float $expectedResult, string $input)
     {
         $this->assertEquals(
             $expectedResult,
             $this->textMeter->getWidth($input)
+        );
+    }
+
+    /**
+     * @dataProvider expectedHeightResultProvider
+     *
+     * @covers ::getHeight
+     * @covers ::__construct
+     *
+     * @param string $input
+     * @param array $expectedResult
+     */
+    public function testExpectedHeightResult(float $expectedResult, string $input)
+    {
+        $this->assertEquals(
+            $expectedResult,
+            $this->textMeter->getHeight($input)
         );
     }
 }

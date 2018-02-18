@@ -37,8 +37,9 @@ Split a string into its smallest atoms according to some rules.
 ## TextWrapper
 
     $textWrapper = new TextWrapper(
-        $textSplitter,
-        $textMeter
+        $textAtomSplitter,
+        $textMeter,
+        100
     );
 
     $textWrapper->wrap($text);

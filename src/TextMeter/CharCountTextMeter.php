@@ -24,4 +24,17 @@ class CharCountTextMeter implements TextMeterInterface
 
         return $maxLength;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getHeight(string $text) : float
+    {
+        return count(preg_split(
+            "/(\\R)/",
+            $text,
+            0,
+            PREG_SPLIT_NO_EMPTY
+        ));
+    }
 }
