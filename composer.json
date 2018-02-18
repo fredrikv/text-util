@@ -1,0 +1,25 @@
+{
+    "name": "fredrikv/text-util",
+    "description": "Utilities for measuring and wrapping text",
+    "type": "library",
+    "require": {
+        "ext-gd": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+	"ext-xdebug": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fredrik Vestermark",
+            "email": "fredrik.vestermark@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "FredrikV\\TextUtil\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "FredrikV\\TextUtil\\Test\\": "tests/" }
+    }
+}
