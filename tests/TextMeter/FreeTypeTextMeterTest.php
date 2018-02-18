@@ -23,7 +23,7 @@ class FreeTypeMeterTest extends TestCase
     {
         return [
             [ 0,  "" ],
-            [ 12, "O" ],
+            [ 11, "O" ],
         ];
     }
 
