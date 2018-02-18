@@ -1,6 +1,8 @@
 # text-util
 Utilities for measuring and wrapping text.
 
+[![Travis][travis-shield]][travis]
+
 # Installation
 Add the following lines to your composer.json:
 
@@ -16,20 +18,23 @@ Add the following lines to your composer.json:
 
 and run `composer install`.
 
+
+
 # Examples
 
 ## TextAtom
 Split a string into its smallest atoms according to some rules.
-    $textSplitter->split($text);
+
+    $textAtomSplitter = new SpaceTextAtomSplitter();
+    $textAtomSplitter->split($text);
 
 
 ## TextMeter
     $textMeter = new FreeTypeTextMeter(12, '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf');
     $textMeter->getWidth($text);
 
+
 ## TextWrapper
-    $textAtomSplitter   = new SpaceTextAtomSplitter();
-    $textMeter          = new FreeTypeTextMeter();
 
     $textWrapper = new TextWrapper(
         $textSplitter,
@@ -37,6 +42,7 @@ Split a string into its smallest atoms according to some rules.
     );
 
     $textWrapper->wrap($text);
+
 
 
 # Open questions
