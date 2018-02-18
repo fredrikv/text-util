@@ -3,11 +3,13 @@
     "description": "Utilities for measuring and wrapping text",
     "type": "library",
     "require": {
-        "ext-gd": "*"
+        "ext-gd": ">=2"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.5",
-	"ext-xdebug": "*"
+        "ext-xdebug": "*",
+        "qafoo/quality-analyzer": "dev-master",
+        "roave/security-advisories": "dev-master"
     },
     "license": "MIT",
     "authors": [
