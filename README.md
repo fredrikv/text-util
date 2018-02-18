@@ -11,9 +11,10 @@ Add the following lines to your composer.json:
         }
     ],
     "require": {
-        "fredrikv/text-util": "1.*"
+        "fredrikv/text-util": "dev-master"
     }
 
+and run `composer install`.
 
 # Examples
 
