@@ -90,12 +90,14 @@ Split a string into its smallest atoms according to some rules.
 # Open questions
 * Does the provided interface really make sense? What about:
     * `TextWrapper::wrapFreeTypeText(12, '.../DejaVuSans.ttf', 'Lorem ipsum')`
-    * `TextWrapperFactory::createFreeTypeWrapper(12, '.../DejaVuSans.ttf')->wrap('Lorem ipsum')` or similar?
+    * `TextWrapperFactory::createFreeTypeWrapper(12, '.../DejaVuSans.ttf',
+      500)->wrap('Lorem ipsum')` or similar?
 * Should the TextAtomSplitter really be injected into TextWrapper or should the
-  TextWrapper::wrap take an array of text atoms as an argument instead?
+  TextWrapper::wrap take an array of text atoms as an argument instead in order
+  to reduce coupling?
 * Should the TextWrapper really return an array of arrays instead of a string?
   The reason for this desicions was to simplify the implementation of
-  "text-align: justify;".
+  "text-align: justify;". 
 * phpunit.xml.dist:beStrictAboutCoversAnnotation forces the programmer to
   specify all covered methods. As a result, the used TextAtomSplitter* and
   TextMeter* had to either be mocked or explicitly stated to be covered by the
