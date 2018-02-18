@@ -22,8 +22,8 @@ class FreeTypeMeterTest extends TestCase
     public function expectedResultProvider()
     {
         return [
-            [ 2,  "" ],
-            [ 13, "O" ],
+            [ 0,  "" ],
+            [ 12, "O" ],
         ];
     }
 
