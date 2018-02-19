@@ -40,7 +40,7 @@ class TextWrapper implements TextWrapperInterface
     /**
      * {@inheritDoc}
      */
-    public function wrap(string $text)
+    public function wrap(string $text) : string
     {
         $lines = [ [] ];
 
@@ -62,6 +62,19 @@ class TextWrapper implements TextWrapperInterface
             }
         }
 
-        return $lines;
+        return $this->linesToString(
+            $lines
+        );
+    }
+
+    private function linesToString(array $atomLines)
+    {
+        // Wrap text
+        $lines = [];
+        foreach ($atomLines as $atomLine) {
+            $lines[] = implode('', $atomLine);
+        }
+
+        return implode(PHP_EOL, $lines);
     }
 }

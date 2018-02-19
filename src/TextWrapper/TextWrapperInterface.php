@@ -11,7 +11,7 @@ interface TextWrapperInterface
      * Wrap $text into lines.
      *
      * @param string $text
-     * @return string[][] lines of text atoms
+     * @return string wrapped text
      */
-    public function wrap(string $text);
+    public function wrap(string $text) : string;
 }

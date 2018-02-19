@@ -66,16 +66,11 @@ Split a string into its smallest atoms according to some rules.
 
 
     // Wrap text
-    $lines = [];
-    foreach ($textWrapper->wrap($originalText) as $line) {
-        $lines[] = implode('', $line);
-    }
-
-    $wrappedText = implode(PHP_EOL, $lines);
-    $textHeight = $textMeter->getHeight($wrappedText);
+    $wrappedText = $textWrapper->wrap($originalText);
 
 
     // Generate image
+    $textHeight = $textMeter->getHeight($wrappedText);
     $im = imagecreatetruecolor($imageWidth, $imageHeight);
     $textColor = imagecolorallocate($im, 0xFF, 0xFF, 0xFF);
     imagefttext($im, $fontSize, 0, 0, $imageHeight - $textHeight, $textColor, $fontFile, $wrappedText);
@@ -95,9 +90,6 @@ Split a string into its smallest atoms according to some rules.
 * Should the TextAtomSplitter really be injected into TextWrapper or should the
   TextWrapper::wrap take an array of text atoms as an argument instead in order
   to reduce coupling?
-* Should the TextWrapper really return an array of arrays instead of a string?
-  The reason for this desicions was to simplify the implementation of
-  "text-align: justify;". 
 * phpunit.xml.dist:beStrictAboutCoversAnnotation forces the programmer to
   specify all covered methods. As a result, the used TextAtomSplitter* and
   TextMeter* had to either be mocked or explicitly stated to be covered by the

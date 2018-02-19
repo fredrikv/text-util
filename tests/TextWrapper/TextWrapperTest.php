@@ -84,10 +84,10 @@ class TextWrapperTest extends TestCase
     public function expectedResultProvider()
     {
         return [
-            [ [ [ 'hi' ] ],                     "hi" ],
-            [ [ [ 'hi', ' ' ], [ 'hi' ] ],      "hi hi" ],
-            [ [ [ 'hiLong' ] ],                 "hiLong" ],
-            [ [ [ 'hi', ' ' ], [ 'there' ] ],   "hi there" ]
+            [ "hi",          "hi" ],
+            [ "hi \nhi",     "hi hi" ],
+            [ "hiLong",      "hiLong" ],
+            [ "hi \nthere" , "hi there" ]
         ];
     }
 
@@ -96,10 +96,10 @@ class TextWrapperTest extends TestCase
      * @covers ::__construct
      * @covers ::wrap
      *
+     * @param string $expectedResult
      * @param string $input
-     * @param array $expectedResult
      */
-    public function testExpectedResult(array $expectedResult, string $input)
+    public function testExpectedResult(string $expectedResult, string $input)
     {
         $this->assertEquals(
             $expectedResult,
